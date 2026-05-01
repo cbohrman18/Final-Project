@@ -1,4 +1,7 @@
+import math
+import numpy as np
 import pandas as pd
+import statistics as stat
 
 df = pd.read_csv('student_performance_data.csv')
 print(df.head())
@@ -16,3 +19,4 @@ parent = df['parent_education']
 sleep = df['sleep_hours']
 overall = df['overall_score']
 grade = df['grade']
+
