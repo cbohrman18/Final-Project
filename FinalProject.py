@@ -8,15 +8,12 @@ print(df.head())
 
 
 # Extracting columns
-gender = df['gender']
 study = df['study_hours_per_day']
 att = df['attendance_percentage']
 ass = df['assignment_score']
 midterm = df['midterm_score']
 final = df['final_exam_score']
 part = df['participation_score']
-internet = df['internet_access']
-extra = df['extra_classes']
 parent = df['parent_education']
 sleep = df['sleep_hours']
 overall = df['overall_score']
@@ -100,6 +97,70 @@ print("Female overall variance:", female_overall_var)
 print()
 
 
+#Internet access AND extra classes
+yes = df[(df['internet_access'] == 'Yes') & (df['extra_classes'] == 'Yes')]
+no = df[(df['internet_access'] == 'No') & (df['extra_classes'] == 'No')]
+
+yes_midterm_mean = stat.mean(yes['midterm_score'])
+yes_midterm_var = stat.variance(yes['midterm_score'])
+yes_final_mean = stat.mean(yes['final_exam_score'])
+yes_final_var = stat.variance(yes['final_exam_score'])
+yes_overall_mean = stat.mean(yes['overall_score'])
+yes_overall_var = stat.variance(yes['overall_score'])
+
+no_midterm_mean = stat.mean(no['midterm_score'])
+no_midterm_var = stat.variance(no['midterm_score'])
+no_final_mean = stat.mean(no['final_exam_score'])
+no_final_var = stat.variance(no['final_exam_score'])
+no_overall_mean = stat.mean(no['overall_score'])
+no_overall_var = stat.variance(no['overall_score'])
+
+print("Comparison between students with internet access and extra classes:")
+print("Students with internet access and extra classes - Midterm score:", yes_midterm_mean)
+print("Students with internet access and extra classes - Final score:", yes_final_mean)
+print("Students with internet access and extra classes - Overall score:", yes_overall_mean)
+print("Students with internet access and extra classes - Midterm variance:", yes_midterm_var)
+print("Students with internet access and extra classes - Final variance:", yes_final_var)
+print("Students with internet access and extra classes - Overall variance:", yes_overall_var)
+print("Students without internet access and without extra classes - Midterm score:", no_midterm_mean)
+print("Students without internet access and without extra classes - Final score:", no_final_mean)
+print("Students without internet access and without extra classes - Overall score:", no_overall_mean)
+print("Students without internet access and without extra classes - Midterm variance:", no_midterm_var)
+print("Students without internet access and without extra classes - Final variance:", no_final_var)
+print("Students without internet access and without extra classes - Overall variance:", no_overall_var)
+print()
+
+
+#Parent Education
+high = df[df['parent_education'] == 'High School']
+bachelor = df[df['parent_education'] == 'Bachelor']
+master = df[df['parent_education'] == 'Master']
+phd = df[df['parent_education'] == 'PhD']
+
+high_overall_mean = stat.mean(high['overall_score'])
+high_overall_var = stat.variance(high['overall_score'])
+
+bachelor_overall_mean = stat.mean(bachelor['overall_score'])
+bachelor_overall_var = stat.variance(bachelor['overall_score'])
+
+master_overall_mean = stat.mean(master['overall_score'])
+master_overall_var = stat.variance(master['overall_score'])
+
+phd_overall_mean = stat.mean(phd['overall_score'])
+phd_overall_var = stat.variance(phd['overall_score'])
+
+print("Comparison between students with high school and PhD educated parents:")
+print("Students with high school educated parents - Average overall score:", high_overall_mean)
+print("Students with high school educated parents - Overall variance:", high_overall_var)
+print("Students with bachelor's degree educated parents - Average overall score:", bachelor_overall_mean)
+print("Students with bachelor's degree educated parents - Overall variance:", bachelor_overall_var)
+print("Students with master's degree educated parents - Average overall score:", master_overall_mean)
+print("Students with master's degree educated parents - Overall variance:", master_overall_var)
+print("Students with PhD educated parents - Average overall score:", phd_overall_mean)
+print("Students with PhD educated parents - Overall variance:", phd_overall_var)
+print()
+
+
 #Key Observations
 print("Key Observations (thus far):")
 print("1. There is a slightly positive correlation between attendance and overall performance.")
@@ -110,4 +171,6 @@ print("5. Surprisingly, there is no correlation between sleep hours and study ho
 print("6. There is no correlation between attendance and participation.")
 print("7. Surprisingly, There is no correlation between study hours and overall performance.")
 print("8. The performace of male and female students is relatively similar, however, female students gave slightly higher variances in their scores, indicating a wider range of performance")
+print("9. Students with internet access and extra classes tend to perform better than those without. The final exam scores of these students however, show a slightly higher variance.")
+print("10. The education level of the parents doesn't significantly impact the overall performance of their children, with a slight variation in performance across different education levels (highest being those with a Master's degree).")
 print()

@@ -81,3 +81,72 @@ print("Attendance vs Midterm:", att_midterm_corr)
 print("Attendance vs Final:", att_final_corr)
 print("Participation vs Midterm:", part_midterm_corr)
 print("Participation vs Final:", part_final_corr)
+print()
+
+
+#Internet Access
+internet = df[df['internet_access'] == 'Yes']
+no_internet = df[df['internet_access'] == 'No']
+
+internet_midterm_mean = stat.mean(internet['midterm_score'])
+internet_midterm_var = stat.variance(internet['midterm_score'])
+internet_final_mean = stat.mean(internet['final_exam_score'])
+internet_final_var = stat.variance(internet['final_exam_score'])
+internet_overall_mean = stat.mean(internet['overall_score'])
+internet_overall_var = stat.variance(internet['overall_score'])
+
+no_internet_midterm_mean = stat.mean(no_internet['midterm_score'])
+no_internet_midterm_var = stat.variance(no_internet['midterm_score'])
+no_internet_final_mean = stat.mean(no_internet['final_exam_score'])
+no_internet_final_var = stat.variance(no_internet['final_exam_score'])
+no_internet_overall_mean = stat.mean(no_internet['overall_score'])
+no_internet_overall_var = stat.variance(no_internet['overall_score'])
+
+print("Comparison between students with and without internet access:")
+print("Students with internet access - Midterm score:", internet_midterm_mean)
+print("Students with internet access - Final score:", internet_final_mean)
+print("Students with internet access - Overall score:", internet_overall_mean)
+print("Students with internet access - Midterm variance:", internet_midterm_var)
+print("Students with internet access - Final variance:", internet_final_var)
+print("Students with internet access - Overall variance:", internet_overall_var)
+print("Students without internet access - Midterm score:", no_internet_midterm_mean)
+print("Students without internet access - Final score:", no_internet_final_mean)
+print("Students without internet access - Overall score:", no_internet_overall_mean)
+print("Students without internet access - Midterm variance:", no_internet_midterm_var)
+print("Students without internet access - Final variance:", no_internet_final_var)
+print("Students without internet access - Overall variance:", no_internet_overall_var)
+print()
+
+
+#Extra Classes
+extra = df[df['extra_classes'] == 'Yes']
+no_extra = df[df['extra_classes'] == 'No']
+
+extra_midterm_mean = stat.mean(extra['midterm_score'])
+extra_midterm_var = stat.variance(extra['midterm_score'])
+extra_final_mean = stat.mean(extra['final_exam_score'])
+extra_final_var = stat.variance(extra['final_exam_score'])
+extra_overall_mean = stat.mean(extra['overall_score'])
+extra_overall_var = stat.variance(extra['overall_score'])
+
+no_extra_midterm_mean = stat.mean(no_extra['midterm_score'])
+no_extra_midterm_var = stat.variance(no_extra['midterm_score'])
+no_extra_final_mean = stat.mean(no_extra['final_exam_score'])
+no_extra_final_var = stat.variance(no_extra['final_exam_score'])
+no_extra_overall_mean = stat.mean(no_extra['overall_score'])
+no_extra_overall_var = stat.variance(no_extra['overall_score'])
+
+print("Comparison between students with and without extra classes:")
+print("Students with extra classes - Midterm score:", extra_midterm_mean)
+print("Students with extra classes - Final score:", extra_final_mean)
+print("Students with extra classes - Overall score:", extra_overall_mean)
+print("Students with extra classes - Midterm variance:", extra_midterm_var)
+print("Students with extra classes - Final variance:", extra_final_var)
+print("Students with extra classes - Overall variance:", extra_overall_var)
+print("Students without extra classes - Midterm score:", no_extra_midterm_mean)
+print("Students without extra classes - Final score:", no_extra_final_mean)
+print("Students without extra classes - Overall score:", no_extra_overall_mean)
+print("Students without extra classes - Midterm variance:", no_extra_midterm_var)
+print("Students without extra classes - Final variance:", no_extra_final_var)
+print("Students without extra classes - Overall variance:", no_extra_overall_var)
+print()
