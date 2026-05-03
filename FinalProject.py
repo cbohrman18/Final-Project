@@ -24,34 +24,30 @@ grade = df['grade']
 
 
 # Finding the covariace between possibly related columns
+sleep_study_cov = stat.covariance(sleep, study)
+att_part_cov = stat.covariance(att, part)
 study_overall_cov = stat.covariance(study, overall)
 att_overall_cov = stat.covariance(att, overall)
 ass_overall_cov = stat.covariance(ass, overall)
 part_overall_cov = stat.covariance(part, overall)
-sleep_overall_cov = stat.covariance(sleep, overall)
 midterm_overall_cov = stat.covariance(midterm, overall)
 final_overall_cov = stat.covariance(final, overall)
 
-study_midterm_cov = stat.covariance(study, midterm)
-
-study_final_cov = stat.covariance(study, final)
-midterm_final_cov = stat.covariance(midterm, final)
-
 print("Covariances:")
-print("Study vs Overall:", study_overall_cov)
+print("Sleep vs Study:", sleep_study_cov) # No correlation
+print("Attendance vs Participation:", att_part_cov) # No correlation
+print("Study vs Overall:", study_overall_cov) # No correlation
 print("Attendance vs Overall:", att_overall_cov) # Positive correlation
 print("Assignments vs Overall:", ass_overall_cov) # Positive correlation
 print("Participation vs Overall:", part_overall_cov) # Positive correlation
-print("Sleep vs Overall:", sleep_overall_cov)
-print("Midterm vs Overall:", midterm_overall_cov)
-print("Final vs Overall:", final_overall_cov)
-print("Midterm vs Final:", midterm_final_cov) 
-print("Study vs Midterm:", study_midterm_cov)
-print("Study vs Final:", study_final_cov)
+print("Midterm vs Overall:", midterm_overall_cov) # Obvious positive correlation
+print("Final vs Overall:", final_overall_cov) # Obvious Positive correlation
 print()
 
 
 #Calculating correlation coefficients
+sleep_study_corr = stat.correlation(sleep, study)
+att_part_corr = stat.correlation(att, part)
 att_overall_corr = stat.correlation(att, overall)
 ass_overall_corr = stat.correlation(ass, overall)
 part_overall_corr = stat.correlation(part, overall)
@@ -59,6 +55,8 @@ midterm_overall_corr = stat.correlation(midterm, overall)
 final_overall_corr = stat.correlation(final, overall)
 
 print("Correlations:")
+print("Sleep vs Study:", sleep_study_corr)
+print("Attendance vs Participation:", att_part_corr)
 print("Attendance vs Overall:", att_overall_corr)
 print("Assignments vs Overall:", ass_overall_corr)
 print("Participation vs Overall:", part_overall_corr)
@@ -104,9 +102,12 @@ print()
 
 #Key Observations
 print("Key Observations (thus far):")
-print("1. There is a positive correlation between attendance and overall performance.")
+print("1. There is a slightly positive correlation between attendance and overall performance.")
 print("2. There is a positive correlation between assignment scores and overall performance (the largest).")
 print("3. There is a positive correlation between participation and overall performance.")
 print("4. (Obviously) Both midterm and final exam scores have a positive correlation with overall performance, with the final exam score showing a slightly stronger correlation.")
-print("5. The performace of male and female students is relatively similar, however, female students gave slightly higher variances in their scores, indicating a wider range of performance")
+print("5. Surprisingly, there is no correlation between sleep hours and study hours.")
+print("6. There is no correlation between attendance and participation.")
+print("7. Surprisingly, There is no correlation between study hours and overall performance.")
+print("8. The performace of male and female students is relatively similar, however, female students gave slightly higher variances in their scores, indicating a wider range of performance")
 print()
